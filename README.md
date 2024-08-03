@@ -14,6 +14,8 @@ The available options are:
 -k <key>:     Specify the key to use for encryption/decryption.
               If not provided, the file path is used as the key.
 
+-n:           output to console and do not write or delete.
+
 -v:           Enable verbose mode, which prints messages indicating
               whether the file is being encrypted or decrypted.
 
@@ -31,6 +33,9 @@ smash -k mysecretkey example.txt
 
 
 This will create the decrypted example.txt file and delete the example.txt.bin file.
+
+You can install this local version globally by
+npm install -g ./smashdata
 ```
 
 
