@@ -55,3 +55,11 @@ const decryptedString = decrypt(seed, encryptedString);
 console.log(decryptedString)
 ```
 
+### A secret use case
+
+```bash
+export SECRET=$(./smash -n secret.txt)
+echo $SECRET
+
+This is some secret text.
+```

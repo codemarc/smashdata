@@ -8,9 +8,14 @@ const { name, description, version } = packageJson
 
 const main = () => {
 
+  const dumpAndExit = (data) => {
+    console.log(data)
+    process.exit(0)
+  }
+
   const usage = () => {
     console.log(`\n${description} v${version}`)
-    console.log(`usage: ${description} [options] <file>\n\nOptions:\n  -k <key>  Key to encode/decode the file\n  -v        Verbose mode\n  -h        Show this help message\n`)
+    console.log(`usage: ${description} [options] <file>\n\nOptions:\n  -k <key>  Key to encode/decode the file\n  -n        Output to console, No write/delete\n  -v        Verbose mode\n  -h        Show this help message\n`)
     process.exit(0)
   }
 
@@ -25,11 +30,15 @@ const main = () => {
   try {
     if (fs.existsSync(tf)) {
       if (argv.includes('-v')) console.log('encrypting...')
-      fs.writeFileSync(ef, encrypt(key, "" + fs.readFileSync(tf)))
+      const data = encrypt(key, "" + fs.readFileSync(tf))
+      if (argv.includes('-n')) dumpAndExit(data)
+      fs.writeFileSync(ef, data)
       fs.unlinkSync(tf)
       process.exit(0)
     } else if (fs.existsSync(ef)) {
       if (argv.includes('-v')) console.log('decrypting...')
+      const data=decrypt(key, "" + fs.readFileSync(ef))
+      if (argv.includes('-n')) dumpAndExit(data)
       fs.writeFileSync(tf, decrypt(key, "" + fs.readFileSync(ef)))
       fs.unlinkSync(ef)
       process.exit(0)
