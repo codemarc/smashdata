@@ -1,8 +1,8 @@
 {
   "name": "smashdata",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "smash",
-  "main": "smash.js",
+  "main": "smashdata.js",
   "type": "module",
   "license": "MIT",
   "repository": {
