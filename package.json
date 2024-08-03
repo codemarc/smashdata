@@ -12,10 +12,5 @@
   "author": {
     "name": "marc j. greenberg",
     "email": "marc@codemarc.net"
-  },
-  "devDependencies": {
-    "chai": "^5.1.1",
-    "mocha": "^10.7.0",
-    "sinon": "^18.0.0"
   }
 }
