@@ -1,0 +1,21 @@
+{
+  "name": "smashdata",
+  "version": "0.0.1",
+  "description": "smash",
+  "main": "smash.js",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/codemarc/smashdata.git"
+  },
+  "author": {
+    "name": "marc j. greenberg",
+    "email": "marc@codemarc.net"
+  },
+  "devDependencies": {
+    "chai": "^5.1.1",
+    "mocha": "^10.7.0",
+    "sinon": "^18.0.0"
+  }
+}
