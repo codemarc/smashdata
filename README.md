@@ -1,65 +1,83 @@
+
 # smashdata
 
-a simple utility for encrypting and decrypting files.
+A simple utility for encrypting and decrypting files. It provides a preshared key solution to encrypt secrets at rest, allowing them to be safely checked into source control systems like Git. This ensures sensitive data remains secure even if the repository is accessed by unauthorized individuals.
 
-It provides a simple preshared key solution to encrypt secrets at rest (so you can check them into source control). This means that the utility allows users to encrypt sensitive information so that it can be safely stored, even in source control systems like Git. By encrypting these secrets, users can ensure that sensitive data remains secure even if the source code repository is accessed by unauthorized individuals.
+## Command Line Usage
 
-To use the utility, you can run it with the following command:
+To use the utility, run it with the following command:
 
-```code
+```bash
 smash [options] <file>
+```
 
-The available options are:
+### Available Options:
 
--k <key>:     Specify the key to use for encryption/decryption.
-              If not provided, the file path is used as the key.
+- `-k <key>`: Specify the key to use for encryption/decryption. If not provided, the file path is used as the key.
+- `-n`: Output to console and do not write or delete files.
+- `-v`: Enable verbose mode, which prints messages indicating whether the file is being encrypted or decrypted.
+- `-h or --help`: Display the usage information.
 
--n:           output to console and do not write or delete.
+### Examples
 
--v:           Enable verbose mode, which prints messages indicating
-              whether the file is being encrypted or decrypted.
+#### Encrypting a File
+To encrypt the file `example.txt` with the key `mysecretkey`, run:
 
--h or --help: Display the usage information. For example,
-              to encrypt the file example.txt with the
-              key mysecretkey, you would run:
-
+```bash
 smash -k mysecretkey example.txt
+```
 
-This will create an encrypted file example.txt.bin and delete the original example.txt file.
+This will create an encrypted file `example.txt.bin` and delete the original `example.txt` file.
 
-To decrypt the example.txt.bin file, you would run:
+#### Decrypting a File
+To decrypt the `example.txt.bin` file, run:
 
+```bash
 smash -k mysecretkey example.txt
+```
 
+This will create the decrypted `example.txt` file and delete the `example.txt.bin` file.
 
-This will create the decrypted example.txt file and delete the example.txt.bin file.
+### Install Globally
 
-You can install this local version globally by
+You can install this utility globally by running:
+
+```bash
 npm install -g ./smashdata
 ```
 
+## Programmatic Usage
 
-you can call this from your code as well:
+You can call this utility from your code as well:
 
+### Installation
+
+```bash
 npm i smashdata
+```
+
+### Example Code
 
 ```js
-import { encrypt,decrypt } from "smashdata"
+import { encrypt, decrypt } from "smashdata";
 const seed = "my_secret_seed"; // Replace with your secret seed
 
 // Encrypt a string
 const encryptedString = encrypt(seed, "Hello, world!");
-console.log(encryptedString)
+console.log(encryptedString);
 
+// Decrypt the string
 const decryptedString = decrypt(seed, encryptedString);
-console.log(decryptedString)
+console.log(decryptedString);
 ```
 
-### A secret use case
+## Secret Use Case
+
+You can also use this utility in a script to handle secrets:
 
 ```bash
 export SECRET=$(./smash -n secret.txt)
 echo $SECRET
-
-This is some secret text.
 ```
+
+This will print the contents of `secret.txt` as a secret.

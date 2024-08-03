@@ -1,5 +1,5 @@
 {
-  "name": "smashdata",
+  "name": "@codemarc/smashdata",
   "version": "1.0.0",
   "description": "smash",
   "main": "smashdata.js",
@@ -7,10 +7,14 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/codemarc/smashdata.git"
+    "url": "git+https://github.com/codemarc/smashdata.git"
   },
-  "author": {
-    "name": "marc j. greenberg",
-    "email": "marc@codemarc.net"
+  "author": "marc j. greenberg <marc@codemarc.net>",
+  "bugs": {
+    "url": "https://github.com/codemarc/smashdata/issues"
+  },
+  "homepage": "https://github.com/codemarc/smashdata#readme",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
