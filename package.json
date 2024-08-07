@@ -1,6 +1,6 @@
 {
   "name": "@codemarc/smashdata",
-  "version": "1.0.0",
+  "version": "1.01",
   "description": "smash",
   "main": "smashdata.js",
   "type": "module",
@@ -15,6 +15,7 @@
   },
   "homepage": "https://github.com/codemarc/smashdata#readme",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "smash": "./smash"
   }
 }

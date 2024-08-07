@@ -59,7 +59,7 @@ npm i smashdata
 ### Example Code
 
 ```js
-import { encrypt, decrypt } from "smashdata";
+import { encrypt, decrypt } from "@codemarc/smashdata";
 const seed = "my_secret_seed"; // Replace with your secret seed
 
 // Encrypt a string
