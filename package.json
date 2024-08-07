@@ -1,6 +1,6 @@
 {
   "name": "@codemarc/smashdata",
-  "version": "1.01",
+  "version": "1.0.1",
   "description": "smash",
   "main": "smashdata.js",
   "type": "module",
