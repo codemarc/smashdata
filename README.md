@@ -43,7 +43,7 @@ This will create the decrypted `example.txt` file and delete the `example.txt.bi
 You can install this utility globally by running:
 
 ```bash
-npm install -g ./smashdata
+npm install -g @codemarc/smashdata
 ```
 
 ## Programmatic Usage
@@ -52,9 +52,11 @@ You can call this utility from your code as well:
 
 ### Installation
 
+install in your project
 ```bash
-npm i smashdata
+npm install @codemarc/smashdata
 ```
+
 
 ### Example Code
 
