@@ -13,7 +13,7 @@ smash [options] <file>
 
 ### Available Options:
 
-- `-k <key>`: Specify the key to use for encryption/decryption. If not provided, the file path is used as the key.
+- `-k <key>`: Specify the key to use for encryption/decryption. If not provided, the value of the SMASH_KEY environment variable is used as the key.
 - `-n`: Output to console and do not write or delete files.
 - `-v`: Enable verbose mode, which prints messages indicating whether the file is being encrypted or decrypted.
 - `-h or --help`: Display the usage information.

@@ -25,7 +25,7 @@ const main = () => {
 
   const tf = path.resolve(argv[argv.length - 1])
   const ef = tf + '.bin'
-  const key = (argv.includes('-k')) ? argv[argv.indexOf('-k') + 1] : tf
+  const key = (argv.includes('-k')) ? argv[argv.indexOf('-k') + 1] : process.env.SMASH_KEY ?? tf
 
   try {
     if (fs.existsSync(tf)) {
