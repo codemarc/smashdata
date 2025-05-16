@@ -1,9 +1,9 @@
 #!/usr/bin/env node --no-warnings
-import packageJson from "./package.json" assert { type: "json" }
-import path from 'path'
-import fs from 'fs'
+import packageJson from "./package.json" with { type: "json" }
+import path from 'node:path'
+import fs from 'node:fs'
 import { encrypt,decrypt } from "./smashdata.js"
-import { argv } from 'process'
+import { argv } from 'node:process'
 const { name, description, version } = packageJson
 
 const main = () => {
@@ -24,22 +24,22 @@ const main = () => {
   }
 
   const tf = path.resolve(argv[argv.length - 1])
-  const ef = tf + '.bin'
+  const ef = `${tf}.bin`
   const key = (argv.includes('-k')) ? argv[argv.indexOf('-k') + 1] : process.env.SMASH_KEY ?? tf
 
   try {
     if (fs.existsSync(tf)) {
       if (argv.includes('-v')) console.log('encrypting...')
-      const data = encrypt(key, "" + fs.readFileSync(tf))
+      const data = encrypt(key, `${fs.readFileSync(tf)}`)
       if (argv.includes('-n')) dumpAndExit(data)
       fs.writeFileSync(ef, data)
       fs.unlinkSync(tf)
       process.exit(0)
     } else if (fs.existsSync(ef)) {
       if (argv.includes('-v')) console.log('decrypting...')
-      const data=decrypt(key, "" + fs.readFileSync(ef))
+      const data = decrypt(key, `${fs.readFileSync(ef)}`)
       if (argv.includes('-n')) dumpAndExit(data)
-      fs.writeFileSync(tf, decrypt(key, "" + fs.readFileSync(ef)))
+      fs.writeFileSync(tf, data)
       fs.unlinkSync(ef)
       process.exit(0)
     }
@@ -48,7 +48,7 @@ const main = () => {
     if(e.code=== "ERR_INVALID_ARG_TYPE") {
       console.error("\nError: Invalid Key\n\n")
     } else {
-      console.error("\nError: " + e.message)
+      console.error(`\nError: ${e.message}`)
       usage()
     }
   }
