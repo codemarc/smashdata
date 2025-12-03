@@ -1,4 +1,4 @@
-#!/usr/bin/env node --no-warnings
+#!/usr/bin/env -S node --no-warnings
 import packageJson from "./package.json" with { type: "json" }
 import path from 'node:path'
 import fs from 'node:fs'
